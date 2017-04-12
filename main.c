@@ -110,15 +110,15 @@ int main (int argc, char *argv[])
     GdkDisplay* display = gdk_display_manager_get_default_display(mgr);
     GdkScreen *screen = gdk_display_get_default_screen(display);
     GdkWindow *root_win = gdk_screen_get_root_window(screen);
-    cairo_region_t * r =
-    gdk_window_get_clip_region (root_win);
-    //GdkWindow *root_win = gdk_get_default_root_window();
+
+    //GdkWindow *root_win = gdk_window_get_toplevel(gdk_get_default_root_window ());
+    //GdkWindow *root_win = gdk_get_default_root_window ();
     gint width = gdk_window_get_width(root_win);
     gint height = gdk_window_get_height(root_win);
-
+fprintf(stderr, "%d %d", width, height);
     cairo_surface_t *surface = cairo_image_surface_create(CAIRO_FORMAT_ARGB32,
                                                           width, height);
-    GdkPixbuf *pb = gdk_pixbuf_get_from_window(root_win, 0, 0, width, height);
+    GdkPixbuf *pb = gdk_pixbuf_get_from_drawable(NULL, root_win, NULL,  0, 0, 0, 0, width, height);
 
     cairo_t *cr = cairo_create(surface);
     gdk_cairo_set_source_pixbuf(cr, pb, 0, 0);
