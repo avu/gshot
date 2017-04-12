@@ -1,0 +1,2 @@
+# gshot
+Gnome screenshot
