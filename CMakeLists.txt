@@ -26,7 +26,7 @@ include_directories(${GTK2_INCLUDE_DIRS})
 #include_directories(${Cairo_INCLUDE_DIRS})
 
 # Add an executable compiled from hello.c
-ADD_EXECUTABLE(hello main.c)
+ADD_EXECUTABLE(hello main1.c)
 
 # Link the target to the GTK+ libraries
 # TARGET_LINK_LIBRARIES(hello ${GTK3_LIBRARIES})
